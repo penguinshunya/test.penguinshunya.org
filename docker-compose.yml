@@ -1,0 +1,15 @@
+version: '3'
+services:
+  test:
+    image: rust:latest
+    tty: true
+    volumes:
+      - ./rust:/app
+    networks:
+      - proxy
+    working_dir: /app
+    command: cargo run
+
+networks:
+  proxy:
+    external: true
